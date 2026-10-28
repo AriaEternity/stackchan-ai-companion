@@ -1,0 +1,1 @@
+{"protocol":1,"type":"command","id":"77777777-7777-4777-8777-777777777777","issued_at_ms":1700000000000,"expires_at_ms":1700000010000,"command":{"name":"set_expression","expression":"happy","speed":100}}

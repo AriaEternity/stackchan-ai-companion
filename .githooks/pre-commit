@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+if [ -n "${VIRTUAL_ENV:-}" ]; then
+  python tools/check_public.py
+elif [ -x .venv/bin/python ]; then
+  .venv/bin/python tools/check_public.py
+elif [ -x .venv/Scripts/python.exe ]; then
+  .venv/Scripts/python.exe tools/check_public.py
+else
+  python tools/check_public.py
+fi

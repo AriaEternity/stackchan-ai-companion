@@ -1,0 +1,1 @@
+{"protocol":1,"type":"command","id":"55555555-5555-4555-8555-555555555555","issued_at_ms":1700000000000,"expires_at_ms":1700000010000,"command":{"name":"play_gesture","gesture":"nod","intensity":1.5}}

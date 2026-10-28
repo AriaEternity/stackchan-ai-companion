@@ -1,0 +1,1 @@
+{"protocol":1,"type":"command","id":"33333333-3333-4333-8333-333333333333","issued_at_ms":1700000000000,"expires_at_ms":1700000000500,"command":{"name":"set_idle_mode","mode":"on"}}

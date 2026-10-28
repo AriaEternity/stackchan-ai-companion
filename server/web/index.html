@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>neko</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="login-view" id="login-view" aria-labelledby="login-title">
+      <div class="login-mark" aria-hidden="true">n</div>
+      <h1 id="login-title">neko</h1>
+      <p>只属于你们的对话</p>
+      <form id="login-form" class="login-form">
+        <label for="password">访问密码</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button type="submit">进入</button>
+        <output id="login-error" class="form-error" aria-live="polite"></output>
+      </form>
+    </section>
+
+    <section class="chat-view hidden" id="chat-view" aria-label="neko 对话">
+      <header class="topbar">
+        <div class="identity"><span class="avatar" aria-hidden="true">n</span><span>neko</span></div>
+        <div class="device-status" id="device-status" title="设备状态"><span class="status-dot"></span><span id="device-label">未连接</span></div>
+        <button class="icon-button" type="button" id="memory-button" title="记忆" aria-label="记忆">M</button>
+      </header>
+      <section class="action-bar" aria-labelledby="action-title">
+        <div class="action-bar-head"><span id="action-title">手动动作</span><output id="action-feedback" aria-live="polite"></output></div>
+        <div class="action-grid">
+          <button type="button" data-gesture="nod" disabled>点头</button>
+          <button type="button" data-gesture="shake" disabled>摇头</button>
+          <button type="button" data-gesture="look_left" disabled>左看</button>
+          <button type="button" data-gesture="look_right" disabled>右看</button>
+          <button type="button" data-gesture="look_up" disabled>上看</button>
+          <button type="button" data-gesture="look_down" disabled>下看</button>
+          <button type="button" data-gesture="nuzzle" disabled>蹭蹭</button>
+        </div>
+      </section>
+      <details class="command-panel" id="command-panel">
+        <summary><span>实体设备</span><span id="command-summary">等待状态</span></summary>
+        <div class="motion-lock hidden" id="motion-lock" role="status">服务器动作请求已锁定；设备校准状态未上报</div>
+        <ol class="command-history" id="command-history" aria-label="最近设备命令"></ol>
+      </details>
+      <div class="conversation" id="conversation" aria-live="polite"></div>
+      <form class="composer" id="chat-form">
+        <label class="sr-only" for="message">消息</label>
+        <textarea id="message" rows="1" maxlength="4000" placeholder="和 neko 说点什么" required></textarea>
+        <button class="send-button" type="submit" title="发送" aria-label="发送">&gt;</button>
+      </form>
+    </section>
+
+    <aside class="memory-drawer hidden" id="memory-drawer" aria-label="长期记忆">
+      <header><h2>长期记忆</h2><button class="icon-button" type="button" id="close-memory" title="关闭" aria-label="关闭">X</button></header>
+      <form id="memory-form" class="memory-form">
+        <label for="memory-content">新增记忆</label>
+        <textarea id="memory-content" rows="3" maxlength="2000" placeholder="只记录希望长期保存的事实"></textarea>
+        <button type="submit">保存</button>
+      </form>
+      <div id="memory-list" class="memory-list"></div>
+    </aside>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+services:
+  gateway:
+    build:
+      context: ../server
+    env_file: ../.env
+    environment:
+      PERSONA_PATH: /app/persona/persona.md
+    ports:
+      - '127.0.0.1:8787:8787'
+    volumes:
+      - stackchan-data:/app/data
+      - ${PERSONA_FILE:-../examples/persona.md}:/app/persona/persona.md:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    read_only: true
+    tmpfs: ['/tmp:size=32M,noexec']
+    security_opt: ['no-new-privileges:true']
+    cap_drop: [ALL]
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+    healthcheck:
+      test: ['CMD', 'python', '-c', "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: stackchan
+      POSTGRES_USER: stackchan
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set your own database password}
+    volumes: ['postgres-data:/var/lib/postgresql/data']
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U stackchan -d stackchan']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:7-alpine
+    profiles: [optional-redis]
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes: ['redis-data:/data']
+    restart: unless-stopped
+volumes:
+  stackchan-data:
+  postgres-data:
+  redis-data:

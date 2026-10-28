@@ -1,0 +1,8 @@
+[
+  {"repo":"Forairaaaaa/mooncake","ref":"v2.3.3","target":"components/mooncake","sha256":"930c6273a48172b4aa3f4845ce3de8c7f3bfaa64101b58b25207076d21ea1805"},
+  {"repo":"Forairaaaaa/mooncake_log","ref":"v1.5.0","target":"components/mooncake_log","sha256":"d9ea0ff6923a0999dfd59c733f0c5166b02753ab84c2d8fa4ebbb2afc8148342"},
+  {"repo":"Forairaaaaa/smooth_ui_toolkit","ref":"v2.12.0","target":"components/smooth_ui_toolkit","sha256":"98ee4046e5cd96d95c4544924728409221789c80d74841d5f3592b79cfe3db49"},
+  {"repo":"bblanchon/ArduinoJson","ref":"v7.4.2","target":"components/ArduinoJson","sha256":"9f29b76b30deebaF0823591c8824433b15e5631b18c09b7b594af9e38c9399d9"},
+  {"repo":"espressif/esp-now","ref":"c33383de97f3ed2fc52117f5ef04f71990432e5d","target":"components/esp-now","sha256":"6e06f9804f0ba2f9c4825d8e3501a785c8f09aa1ee4c75a27e995240edcf84a4"},
+  {"repo":"78/xiaozhi-esp32","ref":"v2.2.4","target":"xiaozhi-esp32","sha256":"2db26a8ab559d03225d4280d0d29598100b18f11d1ce2ecfd72e74a55d3567ff","patch":"patches/xiaozhi-esp32.patch","patch_sha256":"dc2aad0bdbaa9c8ff83b7bb94eb5c20703dfeeb11d0f1c94b30a33c9051a5336"}
+]
